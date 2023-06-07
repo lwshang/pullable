@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "canisters": {
+    "app": {
+      "type": "motoko",
+      "main": "src/app/main.mo",
+      "dependencies": [
+        "pullable"
+      ]
+    },
+    "pullable": {
+      "type": "pull",
+      "id": "ig5e5-aqaaa-aaaan-qdxya-cai"
+    }
+  },
+  "output_env_file": ".env"
+}
