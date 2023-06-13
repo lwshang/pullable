@@ -8,7 +8,7 @@ This guide helps service providers to make their canisters pullable.
 
 ## To be pullable or not?
 
-Before we get into the guide, we need figure out whether the canister is suitable to be pullable.
+Before getting into the guide, we need figure out whether the canister is suitable to be pullable.
 
 In short, any canister **providing public service** at a **static canister ID** is good to be pullable.
 
@@ -69,7 +69,7 @@ Then follow [this guide](https://docs.github.com/en/repositories/releasing-proje
 
 ### 3. Attach the wasm to release assets
 
-[Edit the release ](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#editing-a-release) and attach the deployed wasm as a release asset.
+[Edit the release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#editing-a-release) and attach the deployed wasm as a release asset.
 
 The deployed wasm is at
 
@@ -83,3 +83,19 @@ In this project, it will be:
 ```
 .dfx/ic/canisters/service/service.wasm
 ```
+
+## Automate the Routine in CI
+
+This project also provides an CI job which build the canister and create a new release from it.
+
+The workflow will be like:
+
+1. Push a git tag and wait for the GitHub release complete
+2. Download the canister wasm from the release assets, e.g.
+   ```sh
+   > wget https://github.com/lwshang/pullable/releases/latest/download/service.wasm
+   ```
+3. Install (upgrade) the canister using the downloaded wasm, e.g.
+   ```sh
+   > dfx canister --network install service --wasm service.wasm --argument '(1 : nat)' --mode upgrade
+   ```

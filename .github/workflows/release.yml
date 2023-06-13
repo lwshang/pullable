@@ -1,0 +1,36 @@
+name: "release"
+
+on:
+  push:
+    tags:
+      - "*"
+
+env:
+  DFX_VERSION: "0.14.1"
+
+jobs:
+  release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install DFX
+        run: |
+          wget --output-document install-dfx.sh "https://internetcomputer.org/install.sh"
+          bash install-dfx.sh < <(yes Y)
+          rm install-dfx.sh
+          dfx cache install
+          echo "$HOME/bin" >> $GITHUB_PATH
+
+      - name: Build canister
+        run: |
+          dfx build --network ic
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            .dfx/ic/canisters/service/service.wasm
