@@ -1,6 +1,6 @@
 # Pullable
 
-Demo the ["pull dependencies"](https://github.com/dfinity/sdk/blob/master/docs/concepts/pull-dependencies.md#pull-dependencies) workflow provided by [`dfx`](https://github.com/dfinity/sdk).
+Demo the ["pull dependencies"](https://github.com/dfinity/sdk/blob/master/docs/concepts/pull-dependencies.md) workflow provided by [`dfx`](https://github.com/dfinity/sdk).
 
 ## How to pull
 
@@ -11,7 +11,7 @@ The [example](./example/) project demonstrates how does an application canister 
 ```json
 {
   "canisters": {
-    "pullable": {
+    "service": {
       "type": "pull",
       "id": "ig5e5-aqaaa-aaaan-qdxya-cai"
     }
@@ -34,12 +34,12 @@ Pulling canister ig5e5-aqaaa-aaaan-qdxya-cai...
 ```sh
 > dfx deps init
 WARN: The following canister(s) require an init argument. Please run `dfx deps init <NAME/PRINCIPAL>` to set them individually:
-ig5e5-aqaaa-aaaan-qdxya-cai (pullable)
-> dfx deps init pullable
-Error: Canister ig5e5-aqaaa-aaaan-qdxya-cai (pullable) requires an init argument. The following info might be helpful:
+ig5e5-aqaaa-aaaan-qdxya-cai (service)
+> dfx deps init service
+Error: Canister ig5e5-aqaaa-aaaan-qdxya-cai (service) requires an init argument. The following info might be helpful:
 init => A natural number, e.g. 1
 candid:args => (nat)
-> dfx deps init pullable --argument 1
+> dfx deps init service --argument 1
 ```
 
 > You can run the last command directly. The commands above shows how does a developer figure out the required init argument.
@@ -49,15 +49,15 @@ candid:args => (nat)
 ```sh
 > dfx start --clean --background
 > dfx deps deploy
-Creating canister: ig5e5-aqaaa-aaaan-qdxya-cai (pullable)
-Installing canister: ig5e5-aqaaa-aaaan-qdxya-cai (pullable)
+Creating canister: ig5e5-aqaaa-aaaan-qdxya-cai (service)
+Installing canister: ig5e5-aqaaa-aaaan-qdxya-cai (service)
 ```
 
 5. Import the dependency and make inter-canister call ([source code](./example/src/app/main.mo))
 
 ```sh
 > dfx deploy app
-> dfx canister call app pullable_times_2
+> dfx canister call app double_service
 (2 : nat)
 ```
 

@@ -1,5 +1,4 @@
 {
-  "version": 1,
   "canisters": {
     "app": {
       "type": "motoko",
@@ -8,10 +7,9 @@
         "pullable"
       ]
     },
-    "pullable": {
+    "service": {
       "type": "pull",
       "id": "ig5e5-aqaaa-aaaan-qdxya-cai"
     }
-  },
-  "output_env_file": ".env"
+  }
 }

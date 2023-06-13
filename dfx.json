@@ -1,15 +1,13 @@
 {
-  "version": 1,
   "canisters": {
-    "pullable": {
+    "service": {
       "type": "motoko",
       "main": "src/pullable/main.mo",
       "pullable": {
         "dependencies": [],
-        "wasm_url": "https://github.com/lwshang/pullable/releases/latest/download/pullable.wasm",
+        "wasm_url": "https://github.com/lwshang/pullable/releases/latest/download/service.wasm",
         "init_guide": "A natural number, e.g. 1"
       }
     }
-  },
-  "output_env_file": ".env"
+  }
 }

@@ -1,8 +1,8 @@
-import pullable "canister:pullable";
+import service "canister:service";
 
 actor {
-    public func pullable_times_2() : async Nat {
-        let res = 2 * (await pullable.get());
+    public func double_service() : async Nat {
+        let res = 2 * (await service.get());
         return res;
     };
 };
