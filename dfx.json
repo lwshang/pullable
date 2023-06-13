@@ -2,7 +2,7 @@
   "canisters": {
     "service": {
       "type": "motoko",
-      "main": "src/pullable/main.mo",
+      "main": "src/service/main.mo",
       "pullable": {
         "dependencies": [],
         "wasm_url": "https://github.com/lwshang/pullable/releases/latest/download/service.wasm",
