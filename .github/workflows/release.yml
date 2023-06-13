@@ -34,4 +34,4 @@ jobs:
       - name: Release
         uses: "softprops/action-gh-release@v1"
         with:
-          files: Release.txt
+          files: .dfx/ic/canisters/service/service.wasm
