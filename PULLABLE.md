@@ -86,11 +86,11 @@ In this project, it will be:
 
 ## Automate the Routine in CI
 
-This project also provides an CI job which build the canister and create a new release from it.
+[This CI configuration](.github/workflows/release.yml) demonstrates how to use GitHub Action to automate the deploy routine.
 
-The workflow will be like:
+Then the workflow will be like:
 
-1. Push a git tag and wait for the GitHub release complete
+1. Push a git tag and wait for the GitHub release to complete
 2. Download the canister wasm from the release assets, e.g.
    ```sh
    > wget https://github.com/lwshang/pullable/releases/latest/download/service.wasm
