@@ -97,5 +97,5 @@ Then the workflow will be like:
    ```
 3. Install (upgrade) the canister using the downloaded wasm, e.g.
    ```sh
-   > dfx canister --network install service --wasm service.wasm --argument '(1 : nat)' --mode upgrade
+   > dfx canister --network ic install service --wasm service.wasm --argument '(1 : nat)' --mode upgrade
    ```
